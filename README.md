@@ -2,7 +2,12 @@
 
 Playing around with Rust, Wasm and React (with vite).
 
-In this playground, ma just compiling a rust wasm method that i inject at runTime in a react-app.
+In this playground, am just compiling a rust wasm method that i inject at runTime in a react-app.
+
+It's ridiculously fast...
+
+![Screenshot from 2024-07-24 12-44-22](https://github.com/user-attachments/assets/a6fd8831-5b5e-41ed-8c42-ac7c37aa807d)
+
 
 ## DEV REQUIREMENTS
 
