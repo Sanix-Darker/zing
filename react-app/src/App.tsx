@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import initSync from './zing/zing';
 import { calculateTax } from './zing_module';
@@ -6,6 +6,7 @@ import { calculateTax } from './zing_module';
 const App = () => {
   const [value, setValue] = useState(0) as any;
   const [result, setResult] = useState(0) as any;
+  const [wasmodule, setWasmodule] = useState(null) as any;
 
   const loadWasmModule = async () => {
     try {
@@ -15,17 +16,19 @@ const App = () => {
       const bytes = await response.arrayBuffer();
 
       // Initialize the wasm module synchronously
-      return await initSync(bytes);
+      setWasmodule(await initSync(bytes));
     } catch (error) {
       console.error('Error loading WebAssembly module:', error);
     }
   };
 
+  useEffect(() => {
+    loadWasmModule();
+  }, []);
+
   const handleRsTax = () =>  {
-    loadWasmModule().then(wasmModule => {
-        setResult("loading...");
-        setResult("result : " + calculateTax("rust", wasmModule, value));
-    }).catch(e => console.log(e));
+    setResult("loading...");
+    setResult("result : " + calculateTax("rust", wasmodule, value));
   }
 
   const handleJsTax = () =>  {
