@@ -1,0 +1,15 @@
+{
+  "name": "zing",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "zing_bg.wasm",
+    "zing.js",
+    "zing.d.ts"
+  ],
+  "main": "zing.js",
+  "types": "zing.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
