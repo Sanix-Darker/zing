@@ -13,8 +13,8 @@ export default defineConfig({
     }
   },
   server: {
-    mimeTypes: {
-      'application/wasm': ['.wasm']
-    }
+    // mimeTypes: {
+    //   'application/wasm': ['.wasm']
+    // }
   }
 })
